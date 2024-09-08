@@ -1,1 +1,5 @@
-streamlit,plotly,seaborn
+numpy==2.1.1
+pandas==2.2.2
+plotly==5.24.0
+streamlit==1.38.0
+vanna==0.7.2
