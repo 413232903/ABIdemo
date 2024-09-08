@@ -34,9 +34,52 @@ st.markdown("""
         color: #1e3a8a;
         text-align: center;
         padding: 1.5rem 1rem;
-        background: linear-gradient(90deg, #e0e7ff 0%, #ffffff 50%, #e0e7ff 100%);
-        border-radius: 10px;
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 25%, #1d4ed8 50%, #1e40af 75%, #1e3a8a 100%);
+        border-radius: 15px;
         margin-bottom: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    h1::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+            to bottom right,
+            rgba(255, 255, 255, 0.3) 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 50%
+        );
+        transform: rotate(30deg);
+        animation: shine 3s infinite linear;
+    }
+    
+    h1 span {
+        position: relative;
+        z-index: 1;
+        background: linear-gradient(90deg, #ffffff, #f0f9ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+    }
+    
+    @keyframes shine {
+        0% {
+            top: -50%;
+            left: -50%;
+        }
+        100% {
+            top: 150%;
+            left: 150%;
+        }
     }
     
     h3 {
@@ -113,7 +156,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 标题
-st.title("AI数据分析助手")
+st.markdown("<h1><span>AI数据分析助手</span></h1>", unsafe_allow_html=True)
 
 # 初始化Vanna
 vn = VannaDefault(model='chinook', api_key='e079afa307f449af98681bf802688b88')
